@@ -1,6 +1,14 @@
 'use strict';
 
 var rawData = [
+  // {
+  //   title:       'Bacon Ipsum',
+  //   category:    'food',
+  //   author:      '',
+  //   authorUrl:   'http://www.imdb.com/name/nm0000102/',
+  //   publishedOn: '2015-11-05',
+  //   body:   '<p>asldjfsa</p>',
+  // },
   {
     title:       'Bacon Ipsum',
     category:    'food',
