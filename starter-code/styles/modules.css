@@ -1,6 +1,7 @@
 .site-header {
-  background: #FFEAAA;
+  background: #73273B;
   padding: .1em;
+  color: black;
 }
 
 .icon-menu {
@@ -80,7 +81,7 @@
   }
 
   .main-nav ul li:hover a {
-    color: #29506D;
+    color: black;
   }
 
 }
