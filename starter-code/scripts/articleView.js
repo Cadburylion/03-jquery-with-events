@@ -76,18 +76,7 @@ articleView.handleCategoryFilter = function() {
 
 
 articleView.handleMainNav = function() {
-  // $('.icon-home').on('click', function(){
-  //   $('.tab-content').show(750);
-  //   $('.template').hide();
-  // });
-  // $('.icon-address-book').on('click', function(){
-  //   $('.tab-content').hide();
-  //   $('#about').show(750);
-  // })
-
   $('.tab').on('click', function(){
-    // if ($(this).val()){
-    // var $selection = $(this).val();
     var $selection = $(this).data('content');
     console.log($selection);
     $('.tab-content').hide();
@@ -102,7 +91,7 @@ articleView.handleMainNav = function() {
   //       data available to you on the .tab element that was clicked.
 
 
-  // $('.main-nav .tab:first').click();
+  $('.main-nav .tab:first').click();
    // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
