@@ -32,7 +32,7 @@ articleView.populateFilters = function() {
 };
 
 articleView.handleAuthorFilter = function() {
-  $('#author-filter').on('change', function() {
+  $('.main-nav a').on('change', function() {
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we're
     //         defining. "$(this)" is using jQuery to select that element, so we can chain jQuery methods
     //         onto it.
@@ -55,14 +55,46 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      var $selection = $(this).val();
+      console.log($selection);
+      $('article').hide();
+      $('article[data-category="' + $selection + '"]').fadeIn(750);
+    } else {
+      $('article').show();
+      $('.template').hide();
+    }
+    $('#author-filter').val('');
+  });
   // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
   //       When an option with a value is selected, hide all the articles, then reveal the matches.
   //       When the blank (default) option is selected, show all the articles, except for the template.
   //       Be sure to reset the #author-filter while you are at it!
-
 };
 
+
+
 articleView.handleMainNav = function() {
+  // $('.icon-home').on('click', function(){
+  //   $('.tab-content').show(750);
+  //   $('.template').hide();
+  // });
+  // $('.icon-address-book').on('click', function(){
+  //   $('.tab-content').hide();
+  //   $('#about').show(750);
+  // })
+
+  $('.tab').on('click', function(){
+    // if ($(this).val()){
+    // var $selection = $(this).val();
+    var $selection = $(this).data('content');
+    console.log($selection);
+    $('.tab-content').hide();
+    $('#' + $selection).fadeIn(750);
+
+  })
+  // })
   // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
   //       Clicking any .tab element should hide all the .tab-content sections, and then reveal the
   //       single .tab-content section that is associated with the clicked .tab element.
@@ -70,7 +102,8 @@ articleView.handleMainNav = function() {
   //       data available to you on the .tab element that was clicked.
 
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
+  // $('.main-nav .tab:first').click();
+   // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
@@ -90,4 +123,6 @@ articleView.setTeasers = function() {
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
+  articleView.handleMainNav();
 })
